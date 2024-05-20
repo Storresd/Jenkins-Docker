@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    environment:
+      - JENKINS_OPTS=--prefix=/jenkins # Acceder a la interfaz web con: localhost:8080/jenkins
+volumes:
+  jenkins_home:
